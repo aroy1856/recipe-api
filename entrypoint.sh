@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+echo "Waiting for database..."
+uv run python manage.py wait_for_db
+
 echo "Running migrations..."
 uv run python manage.py migrate
 
